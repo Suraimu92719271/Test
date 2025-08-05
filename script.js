@@ -3,7 +3,7 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
   const name = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  fetch("<<https://script.google.com/macros/s/AKfycbyH-_njO_Vc4rQpp0lOiD3GL-q2h8-3r7mlCD0lj2b9dfZskiVO1rE6R8N9Phixa5Ug/exec>>", {
+  fetch("<<AKfycbztO3GUpu9XloK2mwFZ8f_reVVULke6h8PfiHyNd6bIxADGiWftk338sSBc4EYFOWxXuQ>>", {
     method: "POST",
     body: JSON.stringify({
       name: name,
